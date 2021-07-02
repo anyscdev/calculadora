@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="Stylesheet" href="ex.css">
+    <title>cauculadora2.0</title>
+   <style>
+       body {
+    background-color: #c3abda;
+}
+button{
+    padding: 2px 8px;
+    font-size: 20px;
+    color: #4a0101;
+    background-color: #ff00f2;
+}
+button:hover{
+    cursor: pointer;
+    color: #7e1e66;
+    background-color: #50008a;
+}
+
+   </style>
+</head>
+<body>
+    <header>
+        <div id="conteudo">
+            <label>Número 1: <input type="text" id="n1"></label><br><br>
+            <label>Operador + - /: <input type="text" id="op"></label><br><br>
+            <label>Número 2: <input type="number" id="n2"></label><br><br>
+            <button id="botao">OK</button>
+        </div>
+
+    </header>
+    <script>
+
+        //Calculadora
+        function calcula(num1, operador, num2){
+
+                if(operador == "+"){
+                    return(num1+num2);
+                }else if(operador == "-"){
+                    return(num1-num2);
+                }else if(operador == "/"){
+                    return(num1/num2);
+                }else if(operador == ""){
+                    return(num1*num2);
+                }else{
+                    alert("Operador Inválido!");
+                }
+        }
+
+
+
+
+        function exibeResultado(){
+            let mensagem = document.createElement("p");
+            mensagem.innerHTML = parseFloat(num1El.value)+" "+opEl.value+" "+parseFloat(num2El.value)+" = "+
+            calcula(parseInt(num1El.value), opEl.value, parseInt(num2El.value));
+            div.appendChild(mensagem);
+        }
+
+
+
+        let div = document.querySelector("#conteudo");
+        let num1El = document.querySelector("#n1");
+        let opEl = document.querySelector("#op");
+        let num2El = document.querySelector("#n2");
+        let botao = document.querySelector("#botao");
+
+        botao.addEventListener("click", exibeResultado);
+
+
+    </script>
+
+
+</body>
+</html>
